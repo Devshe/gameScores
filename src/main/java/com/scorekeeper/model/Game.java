@@ -1,20 +1,23 @@
-package com.example.gameScores.model;
+package com.scorekeeper.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@RequiredArgsConstructor
+@Getter
+@Setter
 @Table(name="game")
 @Entity
-public class GameModel {
+public class Game {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer gameid;
+    private Integer gameId;
+    @NonNull
     private String name;
+    @NonNull
     private String description;
 }

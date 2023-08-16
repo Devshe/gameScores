@@ -1,6 +1,6 @@
-package com.example.gameScores.repository;
+package com.scorekeeper.repository;
 
-import com.example.gameScores.model.ScoreModel;
+import com.scorekeeper.model.Score;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface ScoreRepository extends JpaRepository<ScoreModel, Long> {
+public interface ScoreRepository extends JpaRepository<Score, Long> {
     @Query(value = "SELECT MAX(s.score) AS maxScore, s.game_id " +
             "FROM score s " +
             "WHERE s.user_id = :userId " +
