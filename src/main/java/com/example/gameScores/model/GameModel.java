@@ -10,11 +10,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Table(name="game")
 @Entity
-public class Game {
+public class GameModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    private Integer gameid;
     private String name;
     private String description;
 }
