@@ -15,4 +15,11 @@ public interface ScoreRepository extends JpaRepository<ScoreModel, Long> {
             "WHERE s.user_id = :userId " +
             "GROUP BY s.game_id", nativeQuery = true)
     List<Object[]> findMaxScoresByUserId(@Param("userId") Long userId);
+
+    @Query(value = "SELECT score, user_id " +
+            "FROM score " +
+            "WHERE game_id = :gameId " +
+            "ORDER BY score DESC " +
+            "LIMIT 10", nativeQuery = true)
+    List<Object[]> findTopScoresForGame(@Param("gameId") Long gameId);
 }
