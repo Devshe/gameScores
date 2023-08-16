@@ -23,7 +23,7 @@ public class ScoreService {
         List <Object[]> highScores = scoreRepository.findMaxScoresByUserId(userId);
         HashMap<String,String> hashMap = new HashMap<>();
         for(Object[] ob:highScores){
-            hashMap.put("Game_Id: " + ob[1], "Score: " + ob[0]);
+            hashMap.put("Game Id: " + ob[1], "Score: " + ob[0]);
         }
         return hashMap;
     }
@@ -32,7 +32,7 @@ public class ScoreService {
         List <Object[]> highScores = scoreRepository.findTopScoresForGame(userId);
         HashMap<String,String> hashMap = new HashMap<>();
         for(Object[] ob:highScores){
-            hashMap.put("User ID:" + ob[1], "Score: " + ob[0]);
+            hashMap.put("User Id :" + ob[1], "Score: " + ob[0]);
         }
         return hashMap;
     }

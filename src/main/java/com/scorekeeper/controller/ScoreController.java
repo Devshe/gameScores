@@ -24,12 +24,12 @@ public class ScoreController {
         this.scoreRepository = scoreRepository;
         this.scoreService = scoreService;
     }
-    
+
     @PostMapping()
     public String createScore(@RequestBody Score score){
         try {
             scoreRepository.save(score);
-            return "user score saved successfully";
+            return "User score saved successfully";
         } catch (Exception e){
             logger.error("Fail to save user score - reason : " + e.getMessage());
             return "Saving user score unsuccessful!";
@@ -44,13 +44,13 @@ public class ScoreController {
 
     //Get user's highest scores in each game
     @GetMapping("/highScores/{id}")
-    public HashMap<String,String> getHighScoresByUserID(@PathVariable Long Id){
-         return scoreService.getHighscoresByUserId(Id);
+    public HashMap<String,String> getHighScoresByUserID(@PathVariable Long id){
+         return scoreService.getHighscoresByUserId(id);
     }
 
     //Retrieve a game's top ten highest scores
     @GetMapping("/gamesHighScores/{id}")
-    public HashMap<String,String> getGameHighScores(@PathVariable Long Id) {
-        return scoreService.getGameHighscores(Id);
+    public HashMap<String,String> getGameHighScores(@PathVariable Long id) {
+        return scoreService.getGameHighscores(id);
     }
 }
